@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   updateMatch,
   resetCards,
@@ -33,12 +33,12 @@ export default function MemoryGame() {
     firstPick ? setSecondPick(card) : setFirstPick(card);
   };
 
-  const reset = () => {
+  const reset = useCallback(() => {
     setFirstPick(null);
     setSecondPick(null);
     setDisabled(false);
     dispatch(turnIncr());
-  };
+  }, [dispatch]);
 
   const resetGame = () => {
     setVictoryModal("");
@@ -59,7 +59,7 @@ export default function MemoryGame() {
       }
       setTimeout(() => reset(), 1000);
     }
-  }, [firstPick, secondPick, dispatch]);
+  }, [firstPick, secondPick, dispatch, reset]);
 
   useEffect(() => {
     if (matchedCards === 16) {
