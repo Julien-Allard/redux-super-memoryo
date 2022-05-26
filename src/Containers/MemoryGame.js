@@ -6,11 +6,11 @@ import {
   increaseMatched,
 } from "../redux/slices/cardsSlice";
 import "./MemoryGame.scss";
-import Card from "../components/Card";
-import TimerBar from "./TimerBar";
-import StartModal from "./StartModal";
-import VictoryModal from "./VictoryModal";
-import DefeatModal from "./DefeatModal";
+import Card from "../components/Card/Card";
+import TimerBar from "../components/TimerBar/TimerBar";
+import StartModal from "../components/StartModal/StartModal";
+import VictoryModal from "../components/VictoryModal/VictoryModal";
+import DefeatModal from "../components/DefeatModal/DefeatModal";
 
 export default function MemoryGame() {
   const [firstPick, setFirstPick] = useState(null);

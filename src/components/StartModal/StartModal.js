@@ -1,6 +1,6 @@
 import "./StartModal.scss";
 import { useDispatch } from "react-redux";
-import { toggleTimer } from "../redux/slices/timerSlice";
+import { toggleTimer } from "../../redux/slices/timerSlice";
 
 export default function StartModal({ startModal, setStartModal }) {
   const dispatch = useDispatch();
