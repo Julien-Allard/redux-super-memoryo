@@ -5,6 +5,7 @@ import {
   resetCards,
   increaseMatched,
 } from "../redux/slices/cardsSlice";
+import { toggleTimer, timerReset } from "../redux/slices/timerSlice";
 import "./MemoryGame.scss";
 import Card from "../components/Card/Card";
 import TimerBar from "../components/TimerBar/TimerBar";
@@ -59,11 +60,12 @@ export default function MemoryGame() {
   }, [firstPick, secondPick, dispatch]);
 
   useEffect(() => {
-    if (matchNumber === 16) {
+    if (matchedCards === 16) {
       setVictoryModal("active");
-      // setTimerBar(false);
+      dispatch(timerReset());
+      dispatch(toggleTimer());
     }
-  }, [matchNumber, cards]);
+  }, [matchedCards, cards, dispatch]);
 
   return (
     <div className="memory-game-container">
