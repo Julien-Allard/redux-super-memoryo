@@ -1,0 +1,47 @@
+.defeatmodal-container {
+  background-color: rgba(255, 255, 255, 0.678);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.active {
+    z-index: 100;
+  }
+
+  .introduction {
+    border: 5px outset #2097ff;
+    border-radius: 5px;
+    background: linear-gradient(#2097ff, #94edff);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .defeat {
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      border: 5px outset brown;
+      border-radius: 5px;
+      padding: 5px;
+      background: #84401e;
+      cursor: pointer;
+      transition: transform ease-out 1s;
+
+      &:hover {
+        transform: rotateX(360deg);
+      }
+    }
+  }
+}

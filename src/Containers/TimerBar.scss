@@ -1,0 +1,34 @@
+.timer-container {
+  margin-top: 50px;
+
+  .timer {
+    padding: 5px 5px;
+    border: 5px outset #1d6aa8;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.568);
+
+    progress {
+      width: 620px;
+      height: 20px;
+      background: #42b032;
+      border-radius: 5px;
+      box-shadow: 0px 0px 3px 0px black inset;
+    }
+
+    progress::-webkit-progress-bar {
+      background: #42b032;
+      border-radius: 5px;
+      box-shadow: 0px 0px 3px 0px black inset;
+    }
+
+    progress::-moz-progress-bar {
+      background: #e71e07;
+      border-radius: 5px;
+    }
+
+    progress::-webkit-progress-value {
+      border-radius: 5px;
+      background: #e71e07;
+    }
+  }
+}
