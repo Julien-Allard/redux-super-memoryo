@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { timerIncr, timerReset, toggleTimer } from "../redux/slices/timerSlice";
+import {
+  timerIncr,
+  timerReset,
+  toggleTimer,
+} from "../../redux/slices/timerSlice";
 import "./TimerBar.scss";
 
 export default function TimerBar({ setDefeatModal, victoryModal }) {
