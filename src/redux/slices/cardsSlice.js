@@ -32,13 +32,17 @@ export const cardsSlice = createSlice({
       });
     },
     resetCards: (state) => {
-      state = shuffledCards;
+      state.deck = [...shuffledCards].sort(() => Math.random() - 0.5);
     },
     increaseMatched: (state) => {
       state.matchedCards += 2;
     },
+    resetMatched: (state) => {
+      state.matchedCards = 0;
+    },
   },
 });
 
-export const { updateMatch, resetCards, increaseMatched } = cardsSlice.actions;
+export const { updateMatch, resetCards, increaseMatched, resetMatched } =
+  cardsSlice.actions;
 export default cardsSlice.reducer;

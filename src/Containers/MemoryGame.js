@@ -4,6 +4,7 @@ import {
   updateMatch,
   resetCards,
   increaseMatched,
+  resetMatched,
 } from "../redux/slices/cardsSlice";
 import { toggleTimer, timerReset } from "../redux/slices/timerSlice";
 import "./MemoryGame.scss";
@@ -23,7 +24,6 @@ export default function MemoryGame() {
   const [defeatModal, setDefeatModal] = useState("");
 
   const [turns, setTurns] = useState(0);
-  const [matchNumber, setMatchNumber] = useState(0);
 
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.cards.deck);
@@ -43,7 +43,9 @@ export default function MemoryGame() {
   const resetGame = () => {
     setVictoryModal("");
     setDefeatModal("");
-    setMatchNumber(0);
+    // setMatchNumber(0);
+    dispatch(resetMatched());
+    dispatch(resetCards());
     setDisabled(false);
     setTurns(0);
   };
