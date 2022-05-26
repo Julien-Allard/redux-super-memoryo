@@ -25,8 +25,6 @@ export default function MemoryGame() {
   const [victoryModal, setVictoryModal] = useState("");
   const [defeatModal, setDefeatModal] = useState("");
 
-  const [turns, setTurns] = useState(0);
-
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.cards.deck);
   const matchedCards = useSelector((state) => state.cards.matchedCards);
@@ -91,16 +89,9 @@ export default function MemoryGame() {
           />
         ))}
       </div>
-      <TimerBar
-        setDefeatModal={setDefeatModal}
-        // victoryModal={victoryModal}
-      />
+      <TimerBar setDefeatModal={setDefeatModal} />
       <StartModal startModal={startModal} setStartModal={setStartModal} />
-      <VictoryModal
-        victoryModal={victoryModal}
-        resetGame={resetGame}
-        turns={turns}
-      />
+      <VictoryModal victoryModal={victoryModal} resetGame={resetGame} />
       <DefeatModal defeatModal={defeatModal} resetGame={resetGame} />
     </div>
   );
