@@ -41,6 +41,8 @@ export default function MemoryGame() {
   }, [dispatch]);
 
   const resetGame = () => {
+    setFirstPick(null);
+    setSecondPick(null);
     setVictoryModal("");
     setDefeatModal("");
     dispatch(resetMatched());
