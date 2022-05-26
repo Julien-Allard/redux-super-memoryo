@@ -1,6 +1,9 @@
 import "./VictoryModal.scss";
+import { useSelector } from "react-redux";
 
-export default function VictoryModal({ victoryModal, resetGame, turns }) {
+export default function VictoryModal({ victoryModal, resetGame }) {
+  const turns = useSelector((state) => state.turns.turn);
+
   const handleClick = () => {
     resetGame();
     const record = localStorage.getItem("bestscore");

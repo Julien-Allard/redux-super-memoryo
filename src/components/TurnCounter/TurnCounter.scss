@@ -1,0 +1,19 @@
+.turncounter-container {
+  width: 550px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  .turncounter,
+  .record {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 600;
+    }
+  }
+}

@@ -7,12 +7,14 @@ import {
   resetMatched,
 } from "../redux/slices/cardsSlice";
 import { toggleTimer, timerReset } from "../redux/slices/timerSlice";
+import { turnIncr, turnReset } from "../redux/slices/turnsSlice";
 import "./MemoryGame.scss";
 import Card from "../components/Card/Card";
 import TimerBar from "../components/TimerBar/TimerBar";
 import StartModal from "../components/StartModal/StartModal";
 import VictoryModal from "../components/VictoryModal/VictoryModal";
 import DefeatModal from "../components/DefeatModal/DefeatModal";
+import TurnCounter from "../components/TurnCounter/TurnCounter";
 
 export default function MemoryGame() {
   const [firstPick, setFirstPick] = useState(null);
@@ -37,17 +39,17 @@ export default function MemoryGame() {
     setFirstPick(null);
     setSecondPick(null);
     setDisabled(false);
-    // setTurns((turns) => turns + 1);
+    dispatch(turnIncr());
   };
 
   const resetGame = () => {
     setVictoryModal("");
     setDefeatModal("");
-    // setMatchNumber(0);
     dispatch(resetMatched());
     dispatch(resetCards());
     setDisabled(false);
-    setTurns(0);
+    dispatch(turnReset());
+    dispatch(toggleTimer());
   };
 
   useEffect(() => {
@@ -74,6 +76,7 @@ export default function MemoryGame() {
       <div className="title">
         <img src="/img/title.png" alt="" />
       </div>
+      <TurnCounter />
       <div className="cards-container">
         {cards.map((card) => (
           <Card
@@ -88,7 +91,6 @@ export default function MemoryGame() {
           />
         ))}
       </div>
-
       <TimerBar
         setDefeatModal={setDefeatModal}
         // victoryModal={victoryModal}
@@ -99,10 +101,7 @@ export default function MemoryGame() {
         resetGame={resetGame}
         turns={turns}
       />
-      <DefeatModal
-        defeatModal={defeatModal}
-        // resetGame={resetGame}
-      />
+      <DefeatModal defeatModal={defeatModal} resetGame={resetGame} />
     </div>
   );
 }
