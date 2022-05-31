@@ -13,6 +13,8 @@
   }
 
   .introduction {
+    max-width: 300px;
+    width: 100%;
     border: 5px outset #2097ff;
     border-radius: 5px;
     background: linear-gradient(#2097ff, #94edff);
@@ -23,6 +25,10 @@
 
     .defeat {
       margin-bottom: 10px;
+
+      img {
+        width: 100%;
+      }
     }
 
     .description {
