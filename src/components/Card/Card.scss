@@ -1,15 +1,15 @@
 .card-container {
   position: relative;
   cursor: pointer;
-  width: 110px;
-  height: 110px;
+  // width: 110px;
+  // height: 110px;
 
   .cover {
     border: 5px outset brown;
     border-radius: 5px;
     padding: 5px;
-    width: 110px;
-    height: 110px;
+    width: 100%;
+    height: 100%;
     position: absolute;
     background-color: #84401e;
     transform: rotateX(0deg);
@@ -21,8 +21,8 @@
     border: 5px outset brown;
     border-radius: 5px;
     padding: 5px;
-    width: 110px;
-    height: 110px;
+    width: 100%;
+    height: 100%;
     position: absolute;
     background-color: #fff;
     transform: rotateX(90deg);
