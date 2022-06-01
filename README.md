@@ -1,6 +1,6 @@
 # Super Memoryo (memory game)
 
-<img src="https://res.cloudinary.com/df4imwogd/image/upload/v1653568513/GitHub/super-memoryo-banner_otsgxc.png"/>
+<img src="https://res.cloudinary.com/df4imwogd/image/upload/v1654105067/GitHub/super-memoryo_r7bnx8.png"/>
 
 A simple memory game with the Mario Theme. You got 16 cards and have to find the 8 pairs before the timer runs out.
 Made with React and Redux.
