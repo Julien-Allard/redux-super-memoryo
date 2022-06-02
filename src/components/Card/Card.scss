@@ -13,6 +13,7 @@
     position: absolute;
     background-color: #84401e;
     transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
     transition: transform linear 0.3s;
     transition-delay: 0.3s;
   }
@@ -26,6 +27,7 @@
     position: absolute;
     background-color: #fff;
     transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);
     transition: transform linear 0.3s;
   }
 

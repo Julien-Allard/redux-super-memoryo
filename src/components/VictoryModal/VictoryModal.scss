@@ -4,12 +4,13 @@
   height: 100vh;
   width: 100vw;
   z-index: -1000;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 
   &.active {
     z-index: 100;
+    display: flex;
   }
 
   .introduction {
