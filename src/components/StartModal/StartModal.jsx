@@ -1,13 +1,13 @@
-import "./StartModal.scss";
-import React from "react";
-import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
-import { toggleTimer } from "../../redux/slices/timerSlice";
+import './StartModal.scss';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { toggleTimer } from '../../redux/slices/timerSlice';
 
 export default function StartModal({ startModal, setStartModal }) {
   const dispatch = useDispatch();
   const handleClick = () => {
-    setStartModal("");
+    setStartModal('');
     dispatch(toggleTimer());
   };
 
@@ -25,7 +25,13 @@ export default function StartModal({ startModal, setStartModal }) {
           </p>
           <p>Time limit : 2 minutes</p>
         </div>
-        <div className="button" onClick={handleClick}>
+        <div
+          className="button"
+          onClick={handleClick}
+          onKeyDown={handleClick}
+          role="button"
+          tabIndex={0}
+        >
           <img src="/img/lets-a-go.png" alt="" />
         </div>
       </div>
@@ -35,5 +41,5 @@ export default function StartModal({ startModal, setStartModal }) {
 
 StartModal.propTypes = {
   startModal: PropTypes.string.isRequired,
-  setStartModal: PropTypes.function.isRequired,
+  setStartModal: PropTypes.func.isRequired,
 };
