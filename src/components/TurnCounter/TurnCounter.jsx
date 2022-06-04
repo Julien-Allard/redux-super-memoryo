@@ -1,10 +1,10 @@
-import "./TurnCounter.scss";
-import React from "react";
-import { useSelector } from "react-redux";
+import './TurnCounter.scss';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 export default function TurnCounter() {
   const turns = useSelector((state) => state.turns.turn);
-  const record = localStorage.getItem("bestscore");
+  const record = localStorage.getItem('bestscore');
 
   return (
     <div className="turncounter-container">
