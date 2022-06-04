@@ -1,13 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   timerIncr,
   timerReset,
   toggleTimer,
-} from "../../redux/slices/timerSlice";
-import "./TimerBar.scss";
+} from '../../redux/slices/timerSlice';
+import './TimerBar.scss';
 
 export default function TimerBar({ setDefeatModal, victoryModal }) {
   const dispatch = useDispatch();
@@ -21,26 +20,29 @@ export default function TimerBar({ setDefeatModal, victoryModal }) {
         dispatch(timerIncr());
       }, 1000);
       return () => clearInterval(interval);
-    } else if (timer === max) {
-      setDefeatModal("active");
-      dispatch(timerReset());
-      dispatch(toggleTimer());
-    } else if (victoryModal === "active") {
+    }
+    if (timer === max) {
+      setDefeatModal('active');
       dispatch(timerReset());
       dispatch(toggleTimer());
     }
+    if (victoryModal === 'active') {
+      dispatch(timerReset());
+      dispatch(toggleTimer());
+    }
+    return null;
   }, [timer, max, dispatch, start, setDefeatModal, victoryModal]);
 
   return (
     <div className="timer-container">
       <div className="timer">
-        <progress value={timer} max={max}></progress>
+        <progress value={timer} max={max} />
       </div>
     </div>
   );
 }
 
 TimerBar.propTypes = {
-  setDefeatModal: PropTypes.function.isRequired,
+  setDefeatModal: PropTypes.func.isRequired,
   victoryModal: PropTypes.string.isRequired,
 };
