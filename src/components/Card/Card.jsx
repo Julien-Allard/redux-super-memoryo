@@ -1,6 +1,6 @@
-import "./Card.scss";
-import React from "react";
-import PropTypes from "prop-types";
+import './Card.scss';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Card({
   card,
@@ -17,7 +17,13 @@ export default function Card({
 
   return (
     <div className="card-container">
-      <div className={flipped ? "flipped" : ""}>
+      <div
+        className={flipped ? 'flipped' : ''}
+        onClick={handleClick}
+        onKeyDown={handleClick}
+        role="button"
+        tabIndex={0}
+      >
         <img
           className={`front ${matched}`}
           src={card.src}
@@ -26,8 +32,9 @@ export default function Card({
         <img
           className="cover"
           src="/img/Question-Block-icon.png"
-          onClick={handleClick}
           alt="card cover"
+          // onClick={handleClick}
+          // onKeyDown={handleClick}
         />
       </div>
     </div>
@@ -35,9 +42,9 @@ export default function Card({
 }
 
 Card.propTypes = {
-  card: PropTypes.object.isRequired,
-  handleSelection: PropTypes.function.isrequired,
-  flipped: PropTypes.boolean.isRequired,
+  card: PropTypes.shape.isRequired,
+  handleSelection: PropTypes.func.isRequired,
+  flipped: PropTypes.bool.isRequired,
   matched: PropTypes.string.isRequired,
-  disabled: PropTypes.boolean.isRequired,
+  disabled: PropTypes.bool.isRequired,
 };

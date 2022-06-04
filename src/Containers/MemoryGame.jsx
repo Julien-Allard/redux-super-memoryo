@@ -31,7 +31,8 @@ export default function MemoryGame() {
 
   const handleSelection = (card) => {
     // firstPick ? setSecondPick(card) : setFirstPick(card);
-    if (firstPick) {
+    if (firstPick && firstPick !== card) {
+      // changed code for test "&& firstPick !== card"
       setSecondPick(card);
     } else {
       setFirstPick(card);
