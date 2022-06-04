@@ -1,6 +1,6 @@
-import "./DefeatModal.scss";
-import React from "react";
-import PropTypes from "prop-types";
+import './DefeatModal.scss';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function DefeatModal({ resetGame, defeatModal }) {
   const handleClick = () => {
@@ -14,7 +14,13 @@ export default function DefeatModal({ resetGame, defeatModal }) {
           <img src="/img/game-over.png" alt="" />
         </div>
         <p className="description">Timeout !</p>
-        <div className="button" onClick={handleClick}>
+        <div
+          className="button"
+          onClick={handleClick}
+          onKeyDown={handleClick}
+          role="button"
+          tabIndex={0}
+        >
           <img src="/img/retry.png" alt="" />
         </div>
       </div>
@@ -23,6 +29,6 @@ export default function DefeatModal({ resetGame, defeatModal }) {
 }
 
 DefeatModal.propTypes = {
-  resetGame: PropTypes.function.isRequired,
+  resetGame: PropTypes.func.isRequired,
   defeatModal: PropTypes.string.isRequired,
 };
