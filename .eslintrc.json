@@ -14,5 +14,6 @@
   "plugins": ["react"],
   "rules": {
     "linebreak-style": 0
-  }
+  },
+  "ignorePatterns": ["src/redux"]
 }

@@ -10,9 +10,10 @@ Made with React and Redux.
 ## Features :
 
 - front-end made with React
-- better folder tree
 - better state management thanks to Redux store and reducers (Redux Toolkit)
-- will get better with time (TypeScript, linter, unit testing)
+- use of the AirBnB config for ESLint for optimal code practices and PropTypes
+- better folder tree
+- will get better with time (TypeScript, unit testing)
 - best score saved on localStorage.
 
 ### Front-end repository : https://github.com/Julien-Allard/redux-super-memoryo

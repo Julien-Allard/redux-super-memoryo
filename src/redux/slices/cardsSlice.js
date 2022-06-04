@@ -1,14 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const cardsSet = [
-  { src: "/img/Boo-icon.png", isMatched: false },
-  { src: "/img/Bullet-Bill-icon.png", isMatched: false },
-  { src: "/img/Flower-Fire-icon.png", isMatched: false },
-  { src: "/img/Mushroom-Super-icon.png", isMatched: false },
-  { src: "/img/Paper-Bowser-icon.png", isMatched: false },
-  { src: "/img/Paper-Mario-icon.png", isMatched: false },
-  { src: "/img/Shell-Green-icon.png", isMatched: false },
-  { src: "/img/Star-icon.png", isMatched: false },
+  { src: '/img/Boo-icon.png', isMatched: false },
+  { src: '/img/Bullet-Bill-icon.png', isMatched: false },
+  { src: '/img/Flower-Fire-icon.png', isMatched: false },
+  { src: '/img/Mushroom-Super-icon.png', isMatched: false },
+  { src: '/img/Paper-Bowser-icon.png', isMatched: false },
+  { src: '/img/Paper-Mario-icon.png', isMatched: false },
+  { src: '/img/Shell-Green-icon.png', isMatched: false },
+  { src: '/img/Star-icon.png', isMatched: false },
 ];
 
 const shuffledCards = [...cardsSet, ...cardsSet]
@@ -16,7 +16,7 @@ const shuffledCards = [...cardsSet, ...cardsSet]
   .map((card) => ({ ...card, id: Math.random() }));
 
 export const cardsSlice = createSlice({
-  name: "cards",
+  name: 'cards',
   initialState: {
     deck: shuffledCards,
     matchedCards: 0,

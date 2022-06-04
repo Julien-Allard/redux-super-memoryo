@@ -30,7 +30,7 @@ export default function TimerBar({ setDefeatModal, victoryModal }) {
       dispatch(timerReset());
       dispatch(toggleTimer());
     }
-    return null;
+    return undefined;
   }, [timer, max, dispatch, start, setDefeatModal, victoryModal]);
 
   return (
