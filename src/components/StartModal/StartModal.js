@@ -1,4 +1,6 @@
 import "./StartModal.scss";
+import React from "react";
+import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { toggleTimer } from "../../redux/slices/timerSlice";
 
@@ -30,3 +32,8 @@ export default function StartModal({ startModal, setStartModal }) {
     </div>
   );
 }
+
+StartModal.propTypes = {
+  startModal: PropTypes.string.isRequired,
+  setStartModal: PropTypes.function.isRequired,
+};

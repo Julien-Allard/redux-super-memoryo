@@ -1,36 +1,41 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   updateMatch,
   resetCards,
   increaseMatched,
   resetMatched,
-} from "../redux/slices/cardsSlice";
-import { toggleTimer, timerReset } from "../redux/slices/timerSlice";
-import { turnIncr, turnReset } from "../redux/slices/turnsSlice";
-import "./MemoryGame.scss";
-import Card from "../components/Card/Card";
-import TimerBar from "../components/TimerBar/TimerBar";
-import StartModal from "../components/StartModal/StartModal";
-import VictoryModal from "../components/VictoryModal/VictoryModal";
-import DefeatModal from "../components/DefeatModal/DefeatModal";
-import TurnCounter from "../components/TurnCounter/TurnCounter";
+} from '../redux/slices/cardsSlice';
+import { toggleTimer, timerReset } from '../redux/slices/timerSlice';
+import { turnIncr, turnReset } from '../redux/slices/turnsSlice';
+import './MemoryGame.scss';
+import Card from '../components/Card/Card';
+import TimerBar from '../components/TimerBar/TimerBar';
+import StartModal from '../components/StartModal/StartModal';
+import VictoryModal from '../components/VictoryModal/VictoryModal';
+import DefeatModal from '../components/DefeatModal/DefeatModal';
+import TurnCounter from '../components/TurnCounter/TurnCounter';
 
 export default function MemoryGame() {
   const [firstPick, setFirstPick] = useState(null);
   const [secondPick, setSecondPick] = useState(null);
   const [disabled, setDisabled] = useState(false);
 
-  const [startModal, setStartModal] = useState("active");
-  const [victoryModal, setVictoryModal] = useState("");
-  const [defeatModal, setDefeatModal] = useState("");
+  const [startModal, setStartModal] = useState('active');
+  const [victoryModal, setVictoryModal] = useState('');
+  const [defeatModal, setDefeatModal] = useState('');
 
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.cards.deck);
   const matchedCards = useSelector((state) => state.cards.matchedCards);
 
   const handleSelection = (card) => {
-    firstPick ? setSecondPick(card) : setFirstPick(card);
+    // firstPick ? setSecondPick(card) : setFirstPick(card);
+    if (firstPick) {
+      setSecondPick(card);
+    } else {
+      setFirstPick(card);
+    }
   };
 
   const reset = useCallback(() => {
@@ -43,8 +48,8 @@ export default function MemoryGame() {
   const resetGame = () => {
     setFirstPick(null);
     setSecondPick(null);
-    setVictoryModal("");
-    setDefeatModal("");
+    setVictoryModal('');
+    setDefeatModal('');
     dispatch(resetMatched());
     dispatch(resetCards());
     setDisabled(false);
@@ -65,7 +70,7 @@ export default function MemoryGame() {
 
   useEffect(() => {
     if (matchedCards === 16) {
-      setVictoryModal("active");
+      setVictoryModal('active');
       dispatch(timerReset());
       dispatch(toggleTimer());
     }
@@ -86,7 +91,7 @@ export default function MemoryGame() {
             flipped={
               card === firstPick || card === secondPick || card.isMatched
             }
-            matched={card.isMatched === true ? "matched" : ""}
+            matched={card.isMatched === true ? 'matched' : ''}
             disabled={disabled}
           />
         ))}

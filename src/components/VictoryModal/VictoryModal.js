@@ -1,4 +1,6 @@
 import "./VictoryModal.scss";
+import React from "react";
+import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 
 export default function VictoryModal({ victoryModal, resetGame }) {
@@ -22,7 +24,7 @@ export default function VictoryModal({ victoryModal, resetGame }) {
         <div className="congratulations">
           <img src="/img/congratulations.png" alt="" />
         </div>
-        <p className="description">You've won !</p>
+        <p className="description">You&aposve won !</p>
         <div className="text">
           <p>But it looks like the princess is in another castle...</p>
         </div>
@@ -33,3 +35,8 @@ export default function VictoryModal({ victoryModal, resetGame }) {
     </div>
   );
 }
+
+VictoryModal.propTypes = {
+  victoryModal: PropTypes.string.isRequired,
+  resetGame: PropTypes.function.isRequired,
+};

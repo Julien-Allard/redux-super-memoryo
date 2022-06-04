@@ -1,4 +1,6 @@
 import "./DefeatModal.scss";
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function DefeatModal({ resetGame, defeatModal }) {
   const handleClick = () => {
@@ -19,3 +21,8 @@ export default function DefeatModal({ resetGame, defeatModal }) {
     </div>
   );
 }
+
+DefeatModal.propTypes = {
+  resetGame: PropTypes.function.isRequired,
+  defeatModal: PropTypes.string.isRequired,
+};

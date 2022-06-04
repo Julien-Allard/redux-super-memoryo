@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -37,3 +39,8 @@ export default function TimerBar({ setDefeatModal, victoryModal }) {
     </div>
   );
 }
+
+TimerBar.propTypes = {
+  setDefeatModal: PropTypes.function.isRequired,
+  victoryModal: PropTypes.string.isRequired,
+};

@@ -1,4 +1,6 @@
 import "./Card.scss";
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function Card({
   card,
@@ -31,3 +33,11 @@ export default function Card({
     </div>
   );
 }
+
+Card.propTypes = {
+  card: PropTypes.object.isRequired,
+  handleSelection: PropTypes.function.isrequired,
+  flipped: PropTypes.boolean.isRequired,
+  matched: PropTypes.string.isRequired,
+  disabled: PropTypes.boolean.isRequired,
+};
