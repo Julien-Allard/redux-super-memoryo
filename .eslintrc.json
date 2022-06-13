@@ -15,5 +15,5 @@
   "rules": {
     "linebreak-style": 0
   },
-  "ignorePatterns": ["src/redux"]
+  "ignorePatterns": ["src/redux", "*.test.js"]
 }

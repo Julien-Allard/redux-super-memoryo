@@ -28,6 +28,7 @@ export default function Card({
           className={`front ${matched}`}
           src={card.src}
           alt="card illustration"
+          data-testid="card-image"
         />
         <img
           className="cover"
@@ -42,9 +43,16 @@ export default function Card({
 }
 
 Card.propTypes = {
-  card: PropTypes.shape.isRequired,
-  handleSelection: PropTypes.func.isRequired,
-  flipped: PropTypes.bool.isRequired,
-  matched: PropTypes.string.isRequired,
-  disabled: PropTypes.bool.isRequired,
+  card: PropTypes.shape().isRequired,
+  handleSelection: PropTypes.func,
+  flipped: PropTypes.bool,
+  matched: PropTypes.string,
+  disabled: PropTypes.bool,
+};
+
+Card.defaultProps = {
+  handleSelection: undefined,
+  flipped: false,
+  matched: '',
+  disabled: false,
 };
