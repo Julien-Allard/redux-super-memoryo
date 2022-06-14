@@ -8,7 +8,10 @@ export default function DefeatModal({ resetGame, defeatModal }) {
   };
 
   return (
-    <div className={`defeatmodal-container ${defeatModal}`}>
+    <div
+      className={`defeatmodal-container ${defeatModal}`}
+      data-testid="defeat-modal"
+    >
       <div className="introduction">
         <div className="defeat">
           <img src="/img/game-over.png" alt="" />
@@ -29,6 +32,11 @@ export default function DefeatModal({ resetGame, defeatModal }) {
 }
 
 DefeatModal.propTypes = {
-  resetGame: PropTypes.func.isRequired,
-  defeatModal: PropTypes.string.isRequired,
+  resetGame: PropTypes.func,
+  defeatModal: PropTypes.string,
+};
+
+DefeatModal.defaultProps = {
+  resetGame: undefined,
+  defeatModal: '',
 };
