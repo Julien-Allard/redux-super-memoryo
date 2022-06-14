@@ -12,7 +12,10 @@ export default function StartModal({ startModal, setStartModal }) {
   };
 
   return (
-    <div className={`startmodal-container ${startModal}`}>
+    <div
+      className={`startmodal-container ${startModal}`}
+      data-testid="start-modal"
+    >
       <div className="introduction">
         <div className="welcome">
           <img src="/img/welcome.png" alt="" />
@@ -40,6 +43,11 @@ export default function StartModal({ startModal, setStartModal }) {
 }
 
 StartModal.propTypes = {
-  startModal: PropTypes.string.isRequired,
-  setStartModal: PropTypes.func.isRequired,
+  startModal: PropTypes.string,
+  setStartModal: PropTypes.func,
+};
+
+StartModal.defaultProps = {
+  startModal: 'active',
+  setStartModal: undefined,
 };
