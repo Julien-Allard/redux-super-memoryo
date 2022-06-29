@@ -34,7 +34,7 @@ export default function TimerBar({ setDefeatModal, victoryModal }) {
   }, [timer, max, dispatch, start, setDefeatModal, victoryModal]);
 
   return (
-    <div className="timer-container">
+    <div className="timer-container" data-testid="timer-bar">
       <div className="timer">
         <progress value={timer} max={max} />
       </div>
@@ -43,6 +43,11 @@ export default function TimerBar({ setDefeatModal, victoryModal }) {
 }
 
 TimerBar.propTypes = {
-  setDefeatModal: PropTypes.func.isRequired,
-  victoryModal: PropTypes.string.isRequired,
+  setDefeatModal: PropTypes.func,
+  victoryModal: PropTypes.string,
+};
+
+TimerBar.defaultProps = {
+  setDefeatModal: undefined,
+  victoryModal: '',
 };
