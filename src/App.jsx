@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MemoryGame from './containers/MemoryGame';
+import MemoryGame from './Containers/MemoryGame';
 
 function App() {
   return (
