@@ -3,11 +3,17 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb-typescript"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
+    // "project": "./tsconfig.json",
     "ecmaVersion": 13,
     "sourceType": "module"
   },

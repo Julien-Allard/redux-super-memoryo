@@ -9,11 +9,11 @@ import {
 import { toggleTimer, timerReset } from '../redux/slices/timerSlice';
 import { turnIncr, turnReset } from '../redux/slices/turnsSlice';
 import './MemoryGame.scss';
-import Card from '../components/Card/Card';
+import Card from '../components/Card/Card.tsx';
 import TimerBar from '../components/TimerBar/TimerBar';
 import StartModal from '../components/StartModal/StartModal';
 import VictoryModal from '../components/VictoryModal/VictoryModal';
-import DefeatModal from '../components/DefeatModal/DefeatModal';
+import DefeatModal from '../components/DefeatModal/DefeatModal.tsx';
 import TurnCounter from '../components/TurnCounter/TurnCounter';
 
 export default function MemoryGame() {
