@@ -10,10 +10,9 @@ import './TimerBar.scss';
 
 type TimerBarProps = {
   setDefeatModal: Dispatch<SetStateAction<string>>;
-  victoryModal: string;
 };
 
-const TimerBar: FC<TimerBarProps> = ({ setDefeatModal, victoryModal }) => {
+const TimerBar: FC<TimerBarProps> = ({ setDefeatModal }) => {
   const dispatch = useAppDispatch();
   const timer = useAppSelector((state) => state.timer.value);
   const max = useAppSelector((state) => state.timer.max);
@@ -31,12 +30,8 @@ const TimerBar: FC<TimerBarProps> = ({ setDefeatModal, victoryModal }) => {
       dispatch(timerReset());
       dispatch(toggleTimer());
     }
-    if (victoryModal === 'active') {
-      dispatch(timerReset());
-      dispatch(toggleTimer());
-    }
     return undefined;
-  }, [timer, max, dispatch, start, setDefeatModal, victoryModal]);
+  }, [timer, max, dispatch, start, setDefeatModal]);
 
   return (
     <div className="timer-container" data-testid="timer-bar">

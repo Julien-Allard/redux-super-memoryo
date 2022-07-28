@@ -4,8 +4,8 @@ import { useAppDispatch } from '../../redux/hooks';
 import { toggleTimer } from '../../redux/slices/timerSlice';
 
 type StartModalProps = {
-  startModal: String;
-  setStartModal: Dispatch<SetStateAction<String>>;
+  startModal: string;
+  setStartModal: Dispatch<SetStateAction<string>>;
 };
 
 const StartModal: FC<StartModalProps> = ({ startModal, setStartModal }) => {

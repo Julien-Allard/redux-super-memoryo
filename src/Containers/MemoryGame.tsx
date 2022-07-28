@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+// eslint-disable-next-line
+import React, { useState, useEffect, useCallback, FC } from 'react';
+import { useAppSelector, useAppDispatch } from '../redux/hooks';
 import {
   updateMatch,
   resetCards,
@@ -16,20 +17,25 @@ import VictoryModal from '../components/VictoryModal/VictoryModal';
 import DefeatModal from '../components/DefeatModal/DefeatModal';
 import TurnCounter from '../components/TurnCounter/TurnCounter';
 
-export default function MemoryGame() {
-  const [firstPick, setFirstPick] = useState(null);
-  const [secondPick, setSecondPick] = useState(null);
-  const [disabled, setDisabled] = useState(false);
+type PickState = {
+  src: string;
+  isMatched: boolean;
+};
 
-  const [startModal, setStartModal] = useState('active');
-  const [victoryModal, setVictoryModal] = useState('');
-  const [defeatModal, setDefeatModal] = useState('');
+const MemoryGame: FC = () => {
+  const [firstPick, setFirstPick] = useState<PickState | null>(null);
+  const [secondPick, setSecondPick] = useState<PickState | null>(null);
+  const [disabled, setDisabled] = useState<boolean>(false);
 
-  const dispatch = useDispatch();
-  const cards = useSelector((state) => state.cards.deck);
-  const matchedCards = useSelector((state) => state.cards.matchedCards);
+  const [startModal, setStartModal] = useState<string>('active');
+  const [victoryModal, setVictoryModal] = useState<string>('');
+  const [defeatModal, setDefeatModal] = useState<string>('');
 
-  const handleSelection = (card) => {
+  const dispatch = useAppDispatch();
+  const cards = useAppSelector((state) => state.cards.deck);
+  const matchedCards = useAppSelector((state) => state.cards.matchedCards);
+
+  const handleSelection = (card: PickState) => {
     // firstPick ? setSecondPick(card) : setFirstPick(card);
     if (firstPick && firstPick !== card) {
       // changed code for test "&& firstPick !== card"
@@ -103,4 +109,6 @@ export default function MemoryGame() {
       <DefeatModal defeatModal={defeatModal} resetGame={resetGame} />
     </div>
   );
-}
+};
+
+export default MemoryGame;

@@ -15,12 +15,19 @@ const shuffledCards = [...cardsSet, ...cardsSet]
   .sort(() => Math.random() - 0.5)
   .map((card) => ({ ...card, id: Math.random() }));
 
+interface CardsState {
+  deck: typeof shuffledCards;
+  matchedCards: number;
+}
+
+const initialState: CardsState = {
+  deck: shuffledCards,
+  matchedCards: 0,
+};
+
 export const cardsSlice = createSlice({
   name: 'cards',
-  initialState: {
-    deck: shuffledCards,
-    matchedCards: 0,
-  },
+  initialState,
   reducers: {
     updateMatch: (state, action) => {
       state.deck = state.deck.map((card) => {
