@@ -8,7 +8,7 @@ import {
 } from '../../redux/slices/timerSlice';
 import './TimerBar.scss';
 
-export default function TimerBar({ setDefeatModal, victoryModal }) {
+const TimerBar = ({ setDefeatModal, victoryModal }) => {
   const dispatch = useDispatch();
   const timer = useSelector((state) => state.timer.value);
   const max = useSelector((state) => state.timer.max);
@@ -40,7 +40,9 @@ export default function TimerBar({ setDefeatModal, victoryModal }) {
       </div>
     </div>
   );
-}
+};
+
+export default TimerBar;
 
 TimerBar.propTypes = {
   setDefeatModal: PropTypes.func,
