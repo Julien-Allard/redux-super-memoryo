@@ -11,10 +11,11 @@ Made with React and Redux.
 
 - front-end made with React
 - better state management thanks to Redux store and reducers (Redux Toolkit)
-- use of the AirBnB config for ESLint for optimal code practices and PropTypes
+- use of the AirBnB config for ESLint for optimal code practices
+- TypeScript for stronger and more reliable typed code
 - unit testing with Jest and react-testing-library
 - better folder tree
-- will get better with time (TypeScript, unit testing)
+- will get better with time (more unit tests)
 - best score saved on localStorage.
 
 ### Front-end repository : https://github.com/Julien-Allard/redux-super-memoryo
