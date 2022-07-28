@@ -1,15 +1,14 @@
 import './Card.scss';
-import React from 'react';
-import { FC } from 'react';
+import React, { FC } from 'react';
 
-type Card = {
+type CardObj = {
   src: string;
   isMatched: boolean;
 };
 
 type CardProps = {
-  card: Card;
-  handleSelection: (card: Card) => void;
+  card: CardObj;
+  handleSelection: (card: CardObj) => void;
   flipped: boolean;
   matched: string;
   disabled: boolean;
