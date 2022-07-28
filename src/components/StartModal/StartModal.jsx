@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { toggleTimer } from '../../redux/slices/timerSlice';
 
-export default function StartModal({ startModal, setStartModal }) {
+const StartModal = ({ startModal, setStartModal }) => {
   const dispatch = useDispatch();
   const handleClick = () => {
     setStartModal('');
@@ -40,14 +40,16 @@ export default function StartModal({ startModal, setStartModal }) {
       </div>
     </div>
   );
-}
-
-StartModal.propTypes = {
-  startModal: PropTypes.string,
-  setStartModal: PropTypes.func,
 };
 
-StartModal.defaultProps = {
-  startModal: 'active',
-  setStartModal: undefined,
-};
+export default StartModal;
+
+// StartModal.propTypes = {
+//   startModal: PropTypes.string,
+//   setStartModal: PropTypes.func,
+// };
+
+// StartModal.defaultProps = {
+//   startModal: 'active',
+//   setStartModal: undefined,
+// };
