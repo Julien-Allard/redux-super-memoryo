@@ -1,6 +1,6 @@
 import './StartModal.scss';
 import React, { FC, Dispatch, SetStateAction } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../redux/hooks';
 import { toggleTimer } from '../../redux/slices/timerSlice';
 
 type StartModalProps = {
@@ -9,7 +9,7 @@ type StartModalProps = {
 };
 
 const StartModal: FC<StartModalProps> = ({ startModal, setStartModal }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleClick = () => {
     setStartModal('');
     dispatch(toggleTimer());
