@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
+// eslint-disable-next-line
+import React, { useEffect, FC, Dispatch, SetStateAction } from 'react';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import {
   timerIncr,
   timerReset,
@@ -8,11 +8,16 @@ import {
 } from '../../redux/slices/timerSlice';
 import './TimerBar.scss';
 
-const TimerBar = ({ setDefeatModal, victoryModal }) => {
-  const dispatch = useDispatch();
-  const timer = useSelector((state) => state.timer.value);
-  const max = useSelector((state) => state.timer.max);
-  const start = useSelector((state) => state.timer.start);
+type TimerBarProps = {
+  setDefeatModal: Dispatch<SetStateAction<string>>;
+  victoryModal: string;
+};
+
+const TimerBar: FC<TimerBarProps> = ({ setDefeatModal, victoryModal }) => {
+  const dispatch = useAppDispatch();
+  const timer = useAppSelector((state) => state.timer.value);
+  const max = useAppSelector((state) => state.timer.max);
+  const start = useAppSelector((state) => state.timer.start);
 
   useEffect(() => {
     if (timer < max && start) {
@@ -43,13 +48,3 @@ const TimerBar = ({ setDefeatModal, victoryModal }) => {
 };
 
 export default TimerBar;
-
-TimerBar.propTypes = {
-  setDefeatModal: PropTypes.func,
-  victoryModal: PropTypes.string,
-};
-
-TimerBar.defaultProps = {
-  setDefeatModal: undefined,
-  victoryModal: '',
-};
