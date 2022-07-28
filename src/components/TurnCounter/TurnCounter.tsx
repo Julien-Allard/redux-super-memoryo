@@ -1,9 +1,9 @@
 import './TurnCounter.scss';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { FC } from 'react';
+import { useAppSelector } from '../../redux/hooks';
 
-export default function TurnCounter() {
-  const turns = useSelector((state) => state.turns.turn);
+const TurnCounter: FC = () => {
+  const turns = useAppSelector((state) => state.turns.turn);
   const record = localStorage.getItem('bestscore');
 
   return (
@@ -18,4 +18,6 @@ export default function TurnCounter() {
       </div>
     </div>
   );
-}
+};
+
+export default TurnCounter;
