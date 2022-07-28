@@ -1,20 +1,24 @@
 import './VictoryModal.scss';
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import React, { FC } from 'react';
+import { useAppSelector } from '../../redux/hooks';
 
-export default function VictoryModal({ victoryModal, resetGame }) {
-  const turns = useSelector((state) => state.turns.turn);
+type VictoryModalProps = {
+  victoryModal: string;
+  resetGame: () => void;
+};
+
+const VictoryModal: FC<VictoryModalProps> = ({ victoryModal, resetGame }) => {
+  const turns = useAppSelector((state) => state.turns.turn);
 
   const handleClick = () => {
     resetGame();
     const record = localStorage.getItem('bestscore');
     if (record) {
-      if (turns < record && record !== 0) {
-        localStorage.setItem('bestscore', turns);
+      if (turns < Number(record) && Number(record) !== 0) {
+        localStorage.setItem('bestscore', turns.toString());
       }
     } else {
-      localStorage.setItem('bestscore', turns);
+      localStorage.setItem('bestscore', turns.toString());
     }
   };
 
@@ -40,9 +44,6 @@ export default function VictoryModal({ victoryModal, resetGame }) {
       </div>
     </div>
   );
-}
-
-VictoryModal.propTypes = {
-  victoryModal: PropTypes.string.isRequired,
-  resetGame: PropTypes.func.isRequired,
 };
+
+export default VictoryModal;
