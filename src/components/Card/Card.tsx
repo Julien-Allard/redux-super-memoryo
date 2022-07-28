@@ -1,14 +1,27 @@
 import './Card.scss';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 
-export default function Card({
+type Card = {
+  src: string;
+  isMatched: boolean;
+};
+
+type CardProps = {
+  card: Card;
+  handleSelection: (card: Card) => void;
+  flipped: boolean;
+  matched: string;
+  disabled: boolean;
+};
+
+const Card: FC<CardProps> = ({
   card,
   handleSelection,
   flipped,
   matched,
   disabled,
-}) {
+}) => {
   const handleClick = () => {
     if (!disabled) {
       handleSelection(card);
@@ -34,25 +47,10 @@ export default function Card({
           className="cover"
           src="/img/Question-Block-icon.png"
           alt="card cover"
-          // onClick={handleClick}
-          // onKeyDown={handleClick}
         />
       </div>
     </div>
   );
-}
-
-Card.propTypes = {
-  card: PropTypes.shape().isRequired,
-  handleSelection: PropTypes.func,
-  flipped: PropTypes.bool,
-  matched: PropTypes.string,
-  disabled: PropTypes.bool,
 };
 
-Card.defaultProps = {
-  handleSelection: undefined,
-  flipped: false,
-  matched: '',
-  disabled: false,
-};
+export default Card;
