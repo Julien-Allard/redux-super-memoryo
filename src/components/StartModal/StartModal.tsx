@@ -1,10 +1,14 @@
 import './StartModal.scss';
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC, Dispatch, SetStateAction } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleTimer } from '../../redux/slices/timerSlice';
 
-const StartModal = ({ startModal, setStartModal }) => {
+type StartModalProps = {
+  startModal: String;
+  setStartModal: Dispatch<SetStateAction<String>>;
+};
+
+const StartModal: FC<StartModalProps> = ({ startModal, setStartModal }) => {
   const dispatch = useDispatch();
   const handleClick = () => {
     setStartModal('');
@@ -43,13 +47,3 @@ const StartModal = ({ startModal, setStartModal }) => {
 };
 
 export default StartModal;
-
-// StartModal.propTypes = {
-//   startModal: PropTypes.string,
-//   setStartModal: PropTypes.func,
-// };
-
-// StartModal.defaultProps = {
-//   startModal: 'active',
-//   setStartModal: undefined,
-// };

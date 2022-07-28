@@ -1,6 +1,5 @@
 import './DefeatModal.scss';
-import React from 'react';
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 type DefeatModalProps = {
   resetGame: () => void;
