@@ -1,8 +1,13 @@
 import './DefeatModal.scss';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 
-export default function DefeatModal({ resetGame, defeatModal }) {
+type DefeatModalProps = {
+  resetGame: () => void;
+  defeatModal: string;
+};
+
+const DefeatModal: FC<DefeatModalProps> = ({ resetGame, defeatModal }) => {
   const handleClick = () => {
     resetGame();
   };
@@ -29,14 +34,6 @@ export default function DefeatModal({ resetGame, defeatModal }) {
       </div>
     </div>
   );
-}
-
-DefeatModal.propTypes = {
-  resetGame: PropTypes.func,
-  defeatModal: PropTypes.string,
 };
 
-DefeatModal.defaultProps = {
-  resetGame: undefined,
-  defeatModal: '',
-};
+export default DefeatModal;
